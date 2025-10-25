@@ -56,3 +56,12 @@ To convert into specific number of subnets use the `count` flag like this -
 iptool split 10.0.0.0/16 --count 4
 ```
 
+### Validate if an IP address is valid or not
+
+To validate if an IP address is valid or not use the `validate` subcommand as shown below -
+
+```
+iptool validate 192.168.300.4
+```
+---------
+
