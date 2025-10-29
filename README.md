@@ -1,6 +1,6 @@
-# iptool
+# ipwiz
 
-`iptool` is a lightweight command-line utility built in Go for developers, DevOps engineers, and network admins who work with IP ranges, subnets, and CIDRs on a daily basis. It provides quick, practical operations like viewing subnet info, converting CIDRs to ranges, splitting or merging networks, and validating IPs, etc.
+`ipwiz` is a lightweight command-line utility built in Go for developers, DevOps engineers, and network admins who work with IP ranges, subnets, and CIDRs on a daily basis. It provides quick, practical operations like viewing subnet info, converting CIDRs to ranges, splitting or merging networks, and validating IPs, etc.
 
 ## Features
 
@@ -9,7 +9,7 @@
 To generate the IP range within a CIDR use the `range` subcommand as shown below -
 
 ```
-iptool range 192.168.1.0/24
+ipwiz range 192.168.1.0/24
 ```
 
 This will return the starting ip address, ending ip address, and the total number of hosts within the CIDR.
@@ -19,7 +19,7 @@ This will return the starting ip address, ending ip address, and the total numbe
 To generate the CIDR for a given IP range (First IP Address and Last IP Address) use the `cidr` subcommand as shown below -
 
 ```
-iptool cidr 192.168.1.0 192.168.1.255
+ipwiz cidr 192.168.1.0 192.168.1.255
 ```
 This will return the quivalent CIDR block for IP range provided.
 
@@ -28,7 +28,7 @@ This will return the quivalent CIDR block for IP range provided.
 To check if a given IP address falls inside a CIDR/Subnet range use the `check` subcommand as shown below -
 
 ```
-iptool check 192.168.1.48 192.168.1.0/24
+ipwiz check 192.168.1.48 192.168.1.0/24
 ```
 
 This will check if the given IP address is inside the CIDR block or not.
@@ -38,7 +38,7 @@ This will check if the given IP address is inside the CIDR block or not.
 To get a summarised information about a subnet range use the `info` subcommand as shown below -
 
 ```
-iptool info 192.168.1.0/24
+ipwiz info 192.168.1.0/24
 ```
 This will return a summary of the subnet.
 
@@ -47,13 +47,13 @@ This will return a summary of the subnet.
 To split a bigger subnet into smaller subnets use the `split` subcommand with `range` flag as shown below -
 
 ```
-iptool split 10.0.0.0/16 --range /24
+ipwiz split 10.0.0.0/16 --range /24
 ```
 
 To convert into specific number of subnets use the `count` flag like this -
 
 ```
-iptool split 10.0.0.0/16 --count 4
+ipwiz split 10.0.0.0/16 --count 4
 ```
 
 ### Validate if an IP address is valid or not
@@ -61,7 +61,7 @@ iptool split 10.0.0.0/16 --count 4
 To validate if an IP address is valid or not use the `validate` subcommand as shown below -
 
 ```
-iptool validate 192.168.300.4
+ipwiz validate 192.168.300.4
 ```
 ---------
 
