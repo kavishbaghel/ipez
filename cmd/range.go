@@ -4,21 +4,32 @@ Copyright © 2025 NAME HERE <EMAIL ADDRESS>
 package cmd
 
 import (
+	"fmt"
+
 	"github.com/spf13/cobra"
+	"inet.af/netaddr"
 )
 
 // rangeCmd represents the range command
 var rangeCmd = &cobra.Command{
 	Use:   "range",
-	Short: "Return the starting ip address, ending ip address, and the total number of hosts within the CIDR.",
-	Long: `A longer description that spans multiple lines and likely contains examples
-and usage of using your command. For example:
-
-Cobra is a CLI library for Go that empowers applications.
-This application is a tool to generate the needed files
-to quickly create a Cobra application.`,
+	Short: "Returns starting IP address, end IP address, and total host count in a given CIDR.",
+	Long:  `Returns starting IP address, end IP address, and total host count in a given CIDR.".`,
 	Run: func(cmd *cobra.Command, args []string) {
-		ip.getCidrRange(args[1])
+		CidrRange, err := netaddr.ParseIPPrefix(args[0])
+
+		if err != nil {
+			fmt.Printf("Some error occurred while fetching range: %v", err)
+			panic(err)
+		}
+
+		// Calculate the start and end ip address
+
+		networkRange := CidrRange.Range()
+		startIp := networkRange.From()
+		endIP := networkRange.To()
+
+		fmt.Printf("\n Starting IP Address: %s \n \n Ending IP Address: %s \n", startIp, endIP)
 	},
 }
 
