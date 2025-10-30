@@ -11,12 +11,15 @@ import (
 
 // rootCmd represents the base command when called without any subcommands
 var rootCmd = &cobra.Command{
-	Use:   "iptool",
+	Use:   "ipwiz",
 	Short: "A lightweight cli tool for engineers to quickly perform IP address and Subnet related tasks.",
-	Long:  `iptool is a lightweight command-line utility built in Go for developers, DevOps engineers, and network admins who work with IP ranges, subnets, and CIDRs on a daily basis. It provides quick, practical operations like viewing subnet info, converting CIDRs to ranges, splitting or merging networks, and validating IPs, etc..`,
-	// Uncomment the following line if your bare application
-	// has an action associated with it:
-	// Run: func(cmd *cobra.Command, args []string) { },
+	Long:  `ipwiz is a lightweight command-line utility built in Go for developers, DevOps engineers, and network admins who work with IP ranges, subnets, and CIDRs on a daily basis. It provides quick, practical operations like viewing subnet info, converting CIDRs to ranges, splitting or merging networks, and validating IPs, etc..`,
+	Run: func(cmd *cobra.Command, args []string) {
+		if len(args) == 0 {
+			cmd.Help()
+			return
+		}
+	},
 }
 
 // Execute adds all child commands to the root command and sets flags appropriately.
